@@ -4,6 +4,9 @@ require("configurations")
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- colorscheme
+vim.cmd.colorscheme("koehler")
+
 -- Map <Esc> to exit terminal mode
 vim.api.nvim_set_keymap('t', '<C-w>N', [[<C-\><C-n>]], { noremap = true })
 
