@@ -16,3 +16,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.number = true   -- keep absolute numbers too (optional)
   end,
 })
+
+-- Use Enter instead of Ctrl+y to confirm
+vim.cmd([[
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+]])
