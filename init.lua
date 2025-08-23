@@ -4,6 +4,9 @@ require("configurations")
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Map <Esc> to exit terminal mode
+vim.api.nvim_set_keymap('t', '<C-w>N', [[<C-\><C-n>]], { noremap = true })
+
 -- ensure netrw directory is synchronized with current working directory
 -- helps ensure telescope is looking at current working directory
 vim.g.netrw_keepdir = 0
@@ -21,3 +24,8 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.cmd([[
   inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 ]])
+
+-- Force block cursor in all modes
+vim.opt.guicursor = ""
+
+
