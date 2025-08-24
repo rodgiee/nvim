@@ -31,4 +31,9 @@ vim.cmd([[
 -- Force block cursor in all modes
 vim.opt.guicursor = ""
 
+-- Ctrl+k and j: allow switching to other window while in terminal mode
+vim.keymap.set('t', '<C-w>k', [[<C-\><C-n><C-w>k]], { noremap = true, silent = true })
+vim.keymap.set('t', '<C-w>j', [[<C-\><C-n><C-w>j]], { noremap = true, silent = true })
+
+
 
