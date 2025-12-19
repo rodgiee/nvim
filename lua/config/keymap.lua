@@ -11,3 +11,16 @@ vim.keymap.set('n', '<C-n>', vim.cmd.Ex)
 
 -- Map <Esc> to exit terminal mode
 vim.api.nvim_set_keymap('t', '<C-w>N', [[<C-\><C-n>]], { noremap = true })
+
+
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+-- LSP setup
+--vim.keymap.set("n", "gD", function() builtin.lsp_implementations() end)
+vim.keymap.set("n", "gd", function() builtin.lsp_definitions() end)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover)
