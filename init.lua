@@ -1,5 +1,5 @@
 -- typescript lsp config
-require("lua.config.init")
+require("config.init")
 
 
 

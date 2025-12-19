@@ -24,3 +24,10 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 --vim.keymap.set("n", "gD", function() builtin.lsp_implementations() end)
 vim.keymap.set("n", "gd", function() builtin.lsp_definitions() end)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+
+vim.o.updatetime = 300
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end
+})
