@@ -16,3 +16,15 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Force block cursor in all modes
 vim.opt.guicursor = ""
+
+-- Show diagonstic information on cursor hover
+vim.o.updatetime = 300
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end
+})
+
+--vim.api.nvim_set_hl(0, 'NormalFloat', {
+	--bg='White',
+--})
