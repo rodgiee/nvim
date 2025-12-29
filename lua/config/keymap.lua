@@ -30,8 +30,22 @@ vim.api.nvim_set_keymap('t', '<C-w>N', [[<C-\><C-n>]], { noremap = true })
 -- telescope keybinds
 local builtin = require('telescope.builtin')
 local utils = require('telescope.utils')
-vim.keymap.set('n', '<leader>ff', function() builtin.find_files({hidden = true, cwd=utils.buffer_dir()})end, { desc = 'Telescope find files in current buffer directory' })
-vim.keymap.set('n', '<leader>fw', function() builtin.find_files({hidden = true})end, { desc = 'Telescope find files' })
+
+-- telescope in current buffer directory
+vim.keymap.set('n', '<leader>ff', function() builtin.find_files({
+	hidden = true, 
+	cwd=utils.buffer_dir(),
+	no_ignore=true,
+	no_ignore_parent=true,
+})end,{ desc = 'Telescope find files in current buffer directory' })
+
+-- telescope in current buffer directory
+vim.keymap.set('n', '<leader>fw', function() builtin.find_files({
+	hidden = true, 
+	no_ignore=true,
+	no_ignore_parent=true,
+})end,{ desc = 'Telescope find files in working directory' })
+
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
