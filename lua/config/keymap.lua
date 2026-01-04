@@ -4,6 +4,7 @@ vim.keymap.set('t', '<C-w>j', [[<C-\><C-n><C-w>j]], { noremap = true, silent = t
 vim.keymap.set('t', '<C-w>h', [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
 vim.keymap.set('t', '<C-w>l', [[<C-\><C-n><C-w>l]], { noremap = true, silent = true })
 
+--vim.keymap.set('n', '<leader>e', function() vim.cmd('botright terminal')end)
 -- Terminal keybind
 vim.keymap.set('n', '<leader>t', function() 
 	local buffer_file_path = vim.fn.expand('%')
@@ -54,4 +55,18 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 --vim.keymap.set("n", "gD", function() builtin.lsp_implementations() end)
 vim.keymap.set("n", "gd", builtin.lsp_definitions)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+
+-- debugger
+local dap, dapui = require('dap'), require('dapui')
+vim.keymap.set("n", "<leader>dt", function() require("dapui").toggle() end)
+
+vim.keymap.set("n", "<leader>dsc", function() require("dap").continue() end)
+vim.keymap.set("n", "<leader>dsv", function() require("dap").step_over() end)
+vim.keymap.set("n", "<leader>dsi", function() require("dap").step_into() end)
+vim.keymap.set("n", "<leader>dso", function() require("dap").step_out() end)
+
+vim.keymap.set("n", "<leader>dbt", function() require("dap").toggle_breakpoint() end)
+vim.keymap.set("n", "<leader>dbc", function() require("dap").clear_breakpoints() end)
+
+
 
