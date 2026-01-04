@@ -22,6 +22,12 @@ return {
 				program = "${file}",
 				cwd = "${workspaceFolder}",
 				envFile="${fileDirname}/.env",
+
+				-- resolve "Could not read source map..." issues
+				resolveSourceMapLocations={
+					"${workspaceFolder}/**",
+					"!**/node_modules/**"
+				}
 			},
 		}
 	end,
