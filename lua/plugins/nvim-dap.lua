@@ -30,5 +30,23 @@ return {
 				}
 			},
 		}
+
+
+		dap.configurations.javascript = {
+			{
+				type = "pwa-node",
+				request = "launch",
+				name = "Launch file",
+				program = "${file}",
+				cwd = "${workspaceFolder}",
+				envFile="${fileDirname}/.env",
+
+				-- resolve "Could not read source map..." issues
+				resolveSourceMapLocations={
+					"${workspaceFolder}/**",
+					"!**/node_modules/**"
+				}
+			},
+		}
 	end,
 }
