@@ -7,18 +7,9 @@ vim.keymap.set('t', '<C-w>l', [[<C-\><C-n><C-w>l]], { noremap = true, silent = t
 --vim.keymap.set('n', '<leader>e', function() vim.cmd('botright terminal')end)
 -- Terminal keybind
 vim.keymap.set('n', '<leader>t', function() 
-	local buffer_file_path = vim.fn.expand('%')
-	local buffer_in_directory = vim.fn.isdirectory(buffer_file_path)
-	if buffer_in_directory  == 1 then
-		vim.cmd('cd %')
-	else
-		vim.cmd('cd %:h')
-
-	end
+	vim.cmd('cd %:p:h') -- :p absolute path :h head of path
 	vim.cmd('botright terminal')
 	vim.cmd('startinsert')
-
-	print(buffer_file_path)
 end)
 
 -- netrw keybind

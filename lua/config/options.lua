@@ -2,6 +2,9 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- tabs
+vim.opt.shiftwidth = 2
+
 -- colorscheme
 vim.cmd.colorscheme("koehler")
 
@@ -21,6 +24,7 @@ vim.opt.guicursor = ""
 vim.o.updatetime = 300
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
+    require('lint').try_lint()
     vim.diagnostic.open_float(nil, { focus = false })
   end
 })
