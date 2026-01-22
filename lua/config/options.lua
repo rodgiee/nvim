@@ -17,6 +17,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- terminal resizing
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    vim.cmd('wincmd =')
+  end
+})
+
 -- Force block cursor in all modes
 vim.opt.guicursor = ""
 
@@ -28,6 +35,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float(nil, { focus = false })
   end
 })
+
 
 --vim.api.nvim_set_hl(0, 'NormalFloat', {
 	--bg='White',
