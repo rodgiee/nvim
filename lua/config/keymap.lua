@@ -38,9 +38,17 @@ vim.keymap.set('n', '<leader>fw', function() builtin.find_files({
 	no_ignore_parent=true,
 })end,{ desc = 'Telescope find files in working directory' })
 
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fg', function() builtin.live_grep({
+	hidden = true,
+	no_ignore=true,
+	no_ignore_parent=true,
+})
+  
+end, { desc = 'Telescope live grep' })
+
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set({'n', 'v'}, '<leader>fW', builtin.grep_string, { desc = 'Telescope find under cursor' })
 
 -- LSP keybinds
 --vim.keymap.set("n", "gD", function() builtin.lsp_implementations() end)
