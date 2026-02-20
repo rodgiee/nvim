@@ -67,5 +67,6 @@ vim.keymap.set("n", "<leader>dso", function() require("dap").step_out() end)
 vim.keymap.set("n", "<leader>dbt", function() require("dap").toggle_breakpoint() end)
 vim.keymap.set("n", "<leader>dbc", function() require("dap").clear_breakpoints() end)
 
-
+-- visual git
+vim.keymap.set("n", "<leader>gb", function() require('vgit').toggle_live_blame() end)
 
