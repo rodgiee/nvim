@@ -69,4 +69,6 @@ vim.keymap.set("n", "<leader>dbc", function() require("dap").clear_breakpoints()
 
 -- visual git
 vim.keymap.set("n", "<leader>gb", function() require('vgit').toggle_live_blame() end)
-
+vim.keymap.set("n", "<leader>gd", function() require('vgit').buffer_hunk_preview() end, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gj", function() require('vgit').hunk_down() end, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gk", function() require('vgit').hunk_up() end, { noremap = true, silent = true })
