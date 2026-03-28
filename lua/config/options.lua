@@ -6,7 +6,7 @@ vim.opt.relativenumber = true
 vim.opt.shiftwidth = 2
 
 -- colorscheme
-vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("catppuccin-mocha")
 
 -- Enable relative numbers in netrw
 vim.api.nvim_create_autocmd("FileType", {
