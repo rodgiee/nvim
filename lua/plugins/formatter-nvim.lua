@@ -2,8 +2,18 @@ return{
 	"mhartington/formatter.nvim",
 	config = function() 
 	  require('formatter').setup({
-	    logging = false,
+	    logging = true,
 	    filetype = {
+	      python = {
+		-- black
+		function()
+		  return {
+		    exe = "black",
+		    args = {"--line-length","120", "--quiet", "-"},
+		    stdin = true
+		  }
+		end
+	      },
 	      typescriptreact = {
 		-- prettierd
 		function()

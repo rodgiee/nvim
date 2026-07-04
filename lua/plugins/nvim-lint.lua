@@ -7,6 +7,7 @@ return{
 		  javascriptreact={'eslint_d'},
 		  typescriptreact={'eslint_d'},
 		  swift={'swiftlint'},
+		  kotlin={'ktlint'},
 		}
 	end
 
