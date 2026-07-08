@@ -53,6 +53,7 @@ vim.keymap.set({'n', 'v'}, '<leader>fW', builtin.grep_string, { desc = 'Telescop
 -- LSP keybinds
 --vim.keymap.set("n", "gD", function() builtin.lsp_implementations() end)
 vim.keymap.set("n", "gd", builtin.lsp_definitions)
+vim.keymap.set("n", "gr", builtin.lsp_references)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
 
 -- debugger
