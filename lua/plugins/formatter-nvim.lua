@@ -14,6 +14,13 @@ return{
 		  }
 		end
 	      },
+	      lua = {
+		function()
+		  return {
+		    exe = "stylua",
+		  }
+		end
+	      },
 	      typescriptreact = {
 		-- prettierd
 		function()
