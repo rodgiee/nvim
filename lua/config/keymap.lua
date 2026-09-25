@@ -4,17 +4,17 @@ vim.keymap.set("t", "<C-w>j", [[<C-\><C-n><C-w>j]], { noremap = true, silent = t
 vim.keymap.set("t", "<C-w>h", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
 vim.keymap.set("t", "<C-w>l", [[<C-\><C-n><C-w>l]], { noremap = true, silent = true })
 
---vim.keymap.set('n', '<leader>e', function() vim.cmd('botright terminal')end)
--- Terminal keybind
+-- Open a terminal in the current file's directory.
 vim.keymap.set("n", "<leader>t", function()
-  vim.cmd("cd %:p:h") -- :p absolute path :h head of path
+  local file = vim.api.nvim_buf_get_name(0)
+  if vim.bo.buftype ~= "" or file == "" then
+    return
+  end
+  vim.cmd.cd(vim.fn.fnameescape(vim.fn.fnamemodify(file, ":p:h")))
   vim.cmd("botright terminal")
   vim.cmd("resize -10")
   vim.cmd("startinsert")
-end)
-
--- netrw keybind
-vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
+end, { desc = "Open terminal in file directory" })
 
 -- Map <Esc> to exit terminal mode
 vim.api.nvim_set_keymap("t", "<C-w>N", [[<C-\><C-n>]], { noremap = true })
@@ -99,3 +99,16 @@ end, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>gk", function()
   require("vgit").hunk_up()
 end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>st", function()
+  local current_file = vim.api.nvim_buf_get_name(0)
+  if string.find(current_file, "openapi.yaml") then
+    vim.cmd("SwaggerPreviewToggle")
+  else
+    vim.print("No openapi.yaml found for Swagger")
+  end
+end)
+--
+-- oil keybind
+-- used to be netrw keybind
+--vim.keymap.set("n", "<C-n>", vim.cmd.Ex)
