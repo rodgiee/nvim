@@ -1,15 +1,15 @@
 vim.lsp.config("lua_ls", {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        checkThirdParty = false,
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-    },
-  },
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				checkThirdParty = false,
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+		},
+	},
 })
 
 vim.lsp.enable("lua_ls")
@@ -17,7 +17,7 @@ vim.lsp.enable("lua_ls")
 -- sourcekit needed to be manually added since not supported by Mason
 -- vim.lsp.enable("sourcekit") will default use neovim/nvim-lspconfig version
 -- we want to use our local version here at lsp/sourcekit-revised.lua
-vim.lsp.enable("sourcekit-revised")
+--vim.lsp.enable("sourcekit-revised")
 
 --vim.api.nvim_create_autocmd('LspAttach',{
 --desc = 'LSP Actions',

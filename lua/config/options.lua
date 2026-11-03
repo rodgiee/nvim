@@ -32,7 +32,9 @@ vim.o.updatetime = 300
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
     require('lint').try_lint()
-    vim.diagnostic.open_float(nil, { focus = false })
+    if vim.g.blink_cmp ~= false then
+      vim.diagnostic.open_float(nil, { focus = false })
+    end
   end
 })
 
