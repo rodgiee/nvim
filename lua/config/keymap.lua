@@ -4,18 +4,6 @@ vim.keymap.set("t", "<C-w>j", [[<C-\><C-n><C-w>j]], { noremap = true, silent = t
 vim.keymap.set("t", "<C-w>h", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
 vim.keymap.set("t", "<C-w>l", [[<C-\><C-n><C-w>l]], { noremap = true, silent = true })
 
--- Open a terminal in the current file's directory.
-vim.keymap.set("n", "<leader>t", function()
-  local file = vim.api.nvim_buf_get_name(0)
-  if vim.bo.buftype ~= "" or file == "" then
-    return
-  end
-  vim.cmd.cd(vim.fn.fnameescape(vim.fn.fnamemodify(file, ":p:h")))
-  vim.cmd("botright terminal")
-  vim.cmd("resize -10")
-  vim.cmd("startinsert")
-end, { desc = "Open terminal in file directory" })
-
 -- Map <Esc> to exit terminal mode
 vim.api.nvim_set_keymap("t", "<C-w>N", [[<C-\><C-n>]], { noremap = true })
 

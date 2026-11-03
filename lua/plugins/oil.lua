@@ -3,21 +3,7 @@ return {
   ---@module 'oil'
   ---@type oil.SetupOpts
   opts = {
-    keymaps = {
-      ["<leader>t"] = {
-        callback = function()
-          local dir = require("oil").get_current_dir()
-          if not dir then
-            return
-          end
-          vim.cmd.cd(vim.fn.fnameescape(dir))
-          vim.cmd("botright terminal")
-          vim.cmd("resize -10")
-          vim.cmd("startinsert")
-        end,
-        desc = "Open terminal in Oil directory",
-      },
-    },
+    keymaps = {},
   },
   -- Optional dependencies
   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
