@@ -48,32 +48,6 @@ vim.keymap.set("n", "gd", builtin.lsp_definitions)
 vim.keymap.set("n", "gr", builtin.lsp_references)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
 
--- debugger
-local dap, dapui = require("dap"), require("dapui")
-vim.keymap.set("n", "<leader>dt", function()
-  require("dapui").toggle()
-end)
-
-vim.keymap.set("n", "<leader>dsc", function()
-  require("dap").continue()
-end)
-vim.keymap.set("n", "<leader>dsv", function()
-  require("dap").step_over()
-end)
-vim.keymap.set("n", "<leader>dsi", function()
-  require("dap").step_into()
-end)
-vim.keymap.set("n", "<leader>dso", function()
-  require("dap").step_out()
-end)
-
-vim.keymap.set("n", "<leader>dbt", function()
-  require("dap").toggle_breakpoint()
-end)
-vim.keymap.set("n", "<leader>dbc", function()
-  require("dap").clear_breakpoints()
-end)
-
 -- visual git
 vim.keymap.set("n", "<leader>gb", function()
   require("vgit").toggle_live_blame()
@@ -96,7 +70,3 @@ vim.keymap.set("n", "<leader>st", function()
     vim.print("No openapi.yaml found for Swagger")
   end
 end)
---
--- oil keybind
--- used to be netrw keybind
---vim.keymap.set("n", "<C-n>", vim.cmd.Ex)

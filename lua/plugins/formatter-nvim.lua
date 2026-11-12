@@ -25,7 +25,7 @@ return {
         lua = {
           function()
             return {
-              exe = "stylua",
+              exe = "stylua --search-parent-directories",
             }
           end,
         },

@@ -13,32 +13,27 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "netrw",
   callback = function()
     vim.opt_local.relativenumber = true
-    vim.opt_local.number = true   -- keep absolute numbers too (optional)
+    vim.opt_local.number = true -- keep absolute numbers too (optional)
   end,
 })
 
 -- terminal resizing
 vim.api.nvim_create_autocmd("TermOpen", {
   callback = function()
-    vim.cmd('wincmd =')
-  end
+    vim.cmd("wincmd =")
+  end,
 })
 
 -- Force block cursor in all modes
 vim.opt.guicursor = ""
 
 -- Show diagonstic information on cursor hover
-vim.o.updatetime = 300
+vim.o.updatetime = 350
 vim.api.nvim_create_autocmd("CursorHold", {
   callback = function()
-    require('lint').try_lint()
+    require("lint").try_lint()
     if vim.g.blink_cmp ~= false then
       vim.diagnostic.open_float(nil, { focus = false })
     end
-  end
+  end,
 })
-
-
---vim.api.nvim_set_hl(0, 'NormalFloat', {
-	--bg='White',
---})
